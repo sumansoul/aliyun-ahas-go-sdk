@@ -1,4 +1,4 @@
-module github.com/aliyun/aliyun-ahas-go-sdk
+module github.com/sumansoul/aliyun-ahas-go-sdk
 
 go 1.13
 
