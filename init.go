@@ -5,16 +5,16 @@ import (
 
 	sentinel "github.com/alibaba/sentinel-golang/api"
 	"github.com/alibaba/sentinel-golang/logging"
-	"github.com/aliyun/aliyun-ahas-go-sdk/aliyun"
-	"github.com/aliyun/aliyun-ahas-go-sdk/config"
-	"github.com/aliyun/aliyun-ahas-go-sdk/heartbeat"
-	"github.com/aliyun/aliyun-ahas-go-sdk/logger"
-	"github.com/aliyun/aliyun-ahas-go-sdk/meta"
-	"github.com/aliyun/aliyun-ahas-go-sdk/sentinel/datasource"
-	"github.com/aliyun/aliyun-ahas-go-sdk/sentinel/handler"
-	"github.com/aliyun/aliyun-ahas-go-sdk/tools"
-	"github.com/aliyun/aliyun-ahas-go-sdk/transport"
 	"github.com/pkg/errors"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/aliyun"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/config"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/heartbeat"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/logger"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/meta"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/sentinel/datasource"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/sentinel/handler"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/tools"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/transport"
 )
 
 func InitAhasDefault() error {

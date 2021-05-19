@@ -2,8 +2,8 @@ package transport
 
 import (
 	"encoding/json"
-	"github.com/aliyun/aliyun-ahas-go-sdk/meta"
-	"github.com/aliyun/aliyun-ahas-go-sdk/service"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/meta"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/service"
 )
 
 type RequestHandler interface {

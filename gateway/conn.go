@@ -5,7 +5,7 @@ import (
 	"crypto/x509"
 	"errors"
 	"fmt"
-	"github.com/aliyun/aliyun-ahas-go-sdk/logger"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/logger"
 	"io/ioutil"
 	"net"
 	"os"

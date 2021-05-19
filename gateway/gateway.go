@@ -3,9 +3,9 @@ package gateway
 import (
 	"errors"
 	"fmt"
-	"github.com/aliyun/aliyun-ahas-go-sdk/aliyun"
-	"github.com/aliyun/aliyun-ahas-go-sdk/meta"
-	"github.com/aliyun/aliyun-ahas-go-sdk/tools"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/aliyun"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/meta"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/tools"
 	"os"
 	"path"
 	"strings"

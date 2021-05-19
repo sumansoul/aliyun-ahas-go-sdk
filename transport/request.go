@@ -2,9 +2,9 @@ package transport
 
 import (
 	"fmt"
-	"github.com/aliyun/aliyun-ahas-go-sdk/meta"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/meta"
 
-	"github.com/aliyun/aliyun-ahas-go-sdk/gateway"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/gateway"
 )
 
 const (

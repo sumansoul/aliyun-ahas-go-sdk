@@ -1,7 +1,7 @@
 package tools
 
 import (
-	"github.com/aliyun/aliyun-ahas-go-sdk/logger"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/logger"
 	"runtime"
 )
 

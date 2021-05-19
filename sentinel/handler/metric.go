@@ -10,7 +10,7 @@ import (
 	"github.com/alibaba/sentinel-golang/core/log/metric"
 	"github.com/alibaba/sentinel-golang/core/system"
 	"github.com/alibaba/sentinel-golang/util"
-	"github.com/aliyun/aliyun-ahas-go-sdk/transport"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/transport"
 )
 
 const (

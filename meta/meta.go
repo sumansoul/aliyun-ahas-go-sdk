@@ -5,9 +5,9 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/aliyun/aliyun-ahas-go-sdk/aliyun"
-	"github.com/aliyun/aliyun-ahas-go-sdk/logger"
 	"github.com/pkg/errors"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/aliyun"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/logger"
 )
 
 const (

@@ -11,10 +11,10 @@ import (
 	"time"
 
 	sentinelConf "github.com/alibaba/sentinel-golang/core/config"
-	"github.com/aliyun/aliyun-ahas-go-sdk/gateway"
-	"github.com/aliyun/aliyun-ahas-go-sdk/logger"
-	"github.com/aliyun/aliyun-ahas-go-sdk/meta"
-	"github.com/aliyun/aliyun-ahas-go-sdk/tools"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/gateway"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/logger"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/meta"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/tools"
 )
 
 type Transport struct {

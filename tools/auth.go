@@ -8,7 +8,7 @@ import (
 	"encoding/base64"
 	"errors"
 	"fmt"
-	"github.com/aliyun/aliyun-ahas-go-sdk/logger"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/logger"
 	"os"
 	"path"
 	"strings"

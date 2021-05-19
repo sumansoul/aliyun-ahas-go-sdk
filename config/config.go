@@ -7,10 +7,10 @@ import (
 
 	"github.com/alibaba/sentinel-golang/core/config"
 	"github.com/alibaba/sentinel-golang/util"
-	"github.com/aliyun/aliyun-ahas-go-sdk/heartbeat"
-	"github.com/aliyun/aliyun-ahas-go-sdk/logger"
-	"github.com/aliyun/aliyun-ahas-go-sdk/sentinel/datasource"
-	"github.com/aliyun/aliyun-ahas-go-sdk/transport"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/heartbeat"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/logger"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/sentinel/datasource"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/transport"
 	"gopkg.in/yaml.v2"
 )
 

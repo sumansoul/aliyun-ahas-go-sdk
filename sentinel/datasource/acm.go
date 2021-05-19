@@ -11,13 +11,13 @@ import (
 	"github.com/alibaba/sentinel-golang/core/isolation"
 	"github.com/alibaba/sentinel-golang/core/system"
 	"github.com/alibaba/sentinel-golang/logging"
-	"github.com/aliyun/aliyun-ahas-go-sdk/logger"
-	"github.com/aliyun/aliyun-ahas-go-sdk/meta"
 	"github.com/nacos-group/nacos-sdk-go/clients"
 	"github.com/nacos-group/nacos-sdk-go/clients/config_client"
 	"github.com/nacos-group/nacos-sdk-go/common/constant"
 	"github.com/nacos-group/nacos-sdk-go/vo"
 	"github.com/pkg/errors"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/logger"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/meta"
 )
 
 const (

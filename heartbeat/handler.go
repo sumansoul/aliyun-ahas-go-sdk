@@ -1,7 +1,7 @@
 package heartbeat
 
 import (
-	"github.com/aliyun/aliyun-ahas-go-sdk/transport"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/transport"
 )
 
 type Handler struct {

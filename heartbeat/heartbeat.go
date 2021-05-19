@@ -1,10 +1,10 @@
 package heartbeat
 
 import (
-	"github.com/aliyun/aliyun-ahas-go-sdk/logger"
-	"github.com/aliyun/aliyun-ahas-go-sdk/meta"
-	"github.com/aliyun/aliyun-ahas-go-sdk/tools"
-	"github.com/aliyun/aliyun-ahas-go-sdk/transport"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/logger"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/meta"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/tools"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/transport"
 	"time"
 )
 

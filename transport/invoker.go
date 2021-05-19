@@ -2,10 +2,10 @@ package transport
 
 import (
 	"encoding/json"
-	"github.com/aliyun/aliyun-ahas-go-sdk/gateway"
-	"github.com/aliyun/aliyun-ahas-go-sdk/logger"
-	"github.com/aliyun/aliyun-ahas-go-sdk/tools"
 	"github.com/pkg/errors"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/gateway"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/logger"
+	"github.com/sumansoul/aliyun-ahas-go-sdk/tools"
 	"strconv"
 )
 

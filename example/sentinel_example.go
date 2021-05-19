@@ -10,7 +10,7 @@ import (
 	"github.com/alibaba/sentinel-golang/core/base"
 	"github.com/alibaba/sentinel-golang/core/circuitbreaker"
 	"github.com/alibaba/sentinel-golang/util"
-	ahas "github.com/aliyun/aliyun-ahas-go-sdk"
+	ahas "github.com/sumansoul/aliyun-ahas-go-sdk"
 )
 
 func main() {
