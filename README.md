@@ -19,3 +19,5 @@ replace github.com/aliyun/aliyun-ahas-go-sdk => github.com/sumansoul/aliyun-ahas
 ```
 github.com/sumansoul/aliyun-ahas-go-sdk v0.0.0-20210519015343-658efacab2ab // indirect
 ```
+
+官方文档：[https://help.aliyun.com/document_detail/154664.html](https://help.aliyun.com/document_detail/154664.html)
