@@ -37,7 +37,7 @@ type LegacyFlowRule struct {
 }
 
 func (lr *LegacyFlowRule) ToFlowRule() *flow.Rule {
-	return &flow.Rule{
+	rule := &flow.Rule{
 		ID:                strconv.FormatUint(lr.ID, 10),
 		Resource:          lr.Resource,
 		Threshold:         lr.Count,
@@ -47,6 +47,22 @@ func (lr *LegacyFlowRule) ToFlowRule() *flow.Rule {
 		WarmUpPeriodSec:   lr.WarmUpPeriodSec,
 		MaxQueueingTimeMs: lr.MaxQueueingTimeMs,
 	}
+	// Legacy controlBehavior = TokenCalculateStrategy + ControlBehavior
+	if lr.ControlBehavior == 1 {
+		// WarmUp
+		rule.ControlBehavior = flow.Reject
+		rule.TokenCalculateStrategy = flow.WarmUp
+		rule.WarmUpColdFactor = 3
+	} else if lr.ControlBehavior == 2 {
+		// Throttling
+		rule.ControlBehavior = flow.Throttling
+		rule.TokenCalculateStrategy = flow.Direct
+	} else if lr.ControlBehavior == 3 {
+		// WarmUp + Throttling
+		rule.ControlBehavior = flow.Throttling
+		rule.TokenCalculateStrategy = flow.WarmUp
+	}
+	return rule
 }
 
 func (lr *LegacyFlowRule) ToIsolationRule() *isolation.Rule {

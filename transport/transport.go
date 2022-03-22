@@ -57,12 +57,10 @@ func New(conf *Config, metadata *meta.Meta) (*Transport, error) {
 		GatewayIp:         hostAndPort[0],
 		GatewayPort:       uint32(port),
 		Timeout:           time.Duration(conf.TimeoutMs) * time.Millisecond,
-	}
-	secure := true
-	if secure {
-		agwConfig.ClientRegionId = metadata.RegionId()
-		agwConfig.ClientEnv = meta.DeployEnv()
-		agwConfig.TlsFlag = true
+		ClientRegionId:    metadata.RegionId(),
+		ClientEnv:         meta.DeployEnv(),
+		// Whether enable TLS
+		TlsFlag: conf.Secure,
 	}
 	err = client.Init(agwConfig)
 	if err != nil {

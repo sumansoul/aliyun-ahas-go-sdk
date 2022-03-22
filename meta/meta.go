@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	CurrentSdkVersion = "1.0.4"
+	CurrentSdkVersion = "1.0.6-GO"
 
 	GoSDK = "GO_SDK"
 )
@@ -44,7 +44,7 @@ func resolvePrivateIp(inVpc bool, deviceType int) (string, error) {
 	return ip, nil
 }
 
-func InitMetadata(license, namespace, env string, secureTransport bool) (*Meta, error) {
+func InitMetadata(license, namespace, env, regionId string, secureTransport bool) (*Meta, error) {
 	metadata.license = license
 	metadata.namespace = namespace
 	metadata.deployEnv = env
@@ -53,10 +53,21 @@ func InitMetadata(license, namespace, env string, secureTransport bool) (*Meta, 
 	if IsInContainer() {
 		metadata.deviceType = Container
 	}
-
+	if len(regionId) == 0 {
+		regionId = aliyun.CnPublic
+	}
+	if !aliyun.IsCurRegionSupported(regionId) {
+		// AHAS 没有在当前 region 开服，则必须配 license，走公网逻辑.
+		if len(license) == 0 {
+			return nil, errors.New("current region " + regionId + " requires AHAS license")
+		} else if regionId != aliyun.CnPublic {
+			logger.Warnf("Region [%s] not open yet, using cn-public instead", regionId)
+			regionId = aliyun.CnPublic
+		}
+	}
 	metadata.hostName = resolveHostName()
-	regionId := aliyun.GetRegionId()
-	if len(regionId) > 0 || license == "" {
+
+	if (len(regionId) > 0 && regionId != aliyun.CnPublic) || license == "" {
 		vpcEcs, err := aliyun.RetrieveVpcMetadata()
 		if err != nil || vpcEcs.Uid == "" {
 			return nil, errors.New("cannot find AHAS license")
@@ -93,6 +104,10 @@ func InitMetadata(license, namespace, env string, secureTransport bool) (*Meta, 
 	var envSupported bool
 	if secureTransport {
 		endpoint, envSupported = aliyun.GetAhasProxyTlsEndpoint(envKey)
+		if !envSupported {
+			// Fallback to non-TLS endpoint
+			endpoint, envSupported = aliyun.GetAhasProxyEndpoint(envKey)
+		}
 	} else {
 		endpoint, envSupported = aliyun.GetAhasProxyEndpoint(envKey)
 	}

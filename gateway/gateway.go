@@ -213,7 +213,7 @@ func checkOrDownloadCert() error {
 	remoteFilePath := path.Join(tools.Constant.OSAgentRemotePath, "cert", "sChat.pem")
 	err := aliyun.Download(CertPath, meta.RegionId(), remoteFilePath, meta.IsPrivate())
 	if err != nil {
-		return fmt.Errorf("download cert failed, %v", err)
+		return fmt.Errorf("download cert failed, err: %v", err)
 	}
 	return nil
 }

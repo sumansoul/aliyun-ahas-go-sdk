@@ -23,6 +23,7 @@ const (
 
 	LicenseEnvKey     = "AHAS_LICENSE"
 	NamespaceEnvKey   = "AHAS_NAMESPACE"
+	RegionIdEnvKey    = "AHAS_REGION_ID"
 	EnvironmentEnvKey = "AHAS_ENV"
 
 	ConfFileEnvKey = "AHAS_CONFIG_FILE_PATH"
@@ -32,6 +33,7 @@ type Config struct {
 	License    string            `yaml:"license"`
 	Namespace  string            `yaml:"namespace"`
 	Env        string            `yaml:"env"`
+	RegionId   string            `yaml:"regionId"`
 	Transport  transport.Config  `yaml:"transport"`
 	Heartbeat  heartbeat.Config  `yaml:"heartbeat"`
 	DataSource datasource.Config `yaml:"datasource"`
@@ -137,6 +139,9 @@ func loadConfFromSystemEnv() {
 	if ahasEnv := os.Getenv(EnvironmentEnvKey); !util.IsBlank(ahasEnv) {
 		localConf.Env = ahasEnv
 	}
+	if ahasRegionId := os.Getenv(RegionIdEnvKey); !util.IsBlank(ahasRegionId) {
+		localConf.RegionId = ahasRegionId
+	}
 }
 
 func License() string {
@@ -145,6 +150,10 @@ func License() string {
 
 func Namespace() string {
 	return localConf.Namespace
+}
+
+func RegionId() string {
+	return localConf.RegionId
 }
 
 func DeployEnv() string {

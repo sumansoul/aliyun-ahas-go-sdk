@@ -8,7 +8,7 @@ import (
 	"github.com/alibaba/sentinel-golang/core/base"
 	sentinelConf "github.com/alibaba/sentinel-golang/core/config"
 	"github.com/alibaba/sentinel-golang/core/log/metric"
-	"github.com/alibaba/sentinel-golang/core/system"
+	"github.com/alibaba/sentinel-golang/core/system_metric"
 	"github.com/alibaba/sentinel-golang/util"
 	"github.com/sumansoul/aliyun-ahas-go-sdk/transport"
 )
@@ -83,13 +83,16 @@ func (h *FetchMetricHandler) Handle(request *transport.Request) *transport.Respo
 func (h *FetchMetricHandler) fetchCpuAndLoadMetric() []*base.MetricItem {
 	list := make([]*base.MetricItem, 0)
 	t := util.CurrentTimeMillis() / 1000 * 1000
-	load1 := system.CurrentLoad()
-	cpuUsage := system.CurrentCpuUsage()
+	load1 := system_metric.CurrentLoad()
+	cpuUsage := system_metric.CurrentCpuUsage()
 	if load1 > 0 {
 		mi := &base.MetricItem{Resource: "__system_load__", Timestamp: t, PassQps: uint64(load1 * 10000)}
 		list = append(list, mi)
 	}
 	if cpuUsage > 0 {
+		if cpuUsage > 1 {
+			cpuUsage = cpuUsage / 100.0
+		}
 		mi := &base.MetricItem{Resource: "__cpu_usage__", Timestamp: t, PassQps: uint64(cpuUsage * 10000)}
 		list = append(list, mi)
 	}

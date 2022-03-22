@@ -42,7 +42,7 @@ func InitAhasFromFile(filename string) (err error) {
 	}
 	var m *meta.Meta
 	m, err = meta.InitMetadata(config.License(), config.Namespace(),
-		config.DeployEnv(), config.TransportConfig().Secure)
+		config.DeployEnv(), resolveRegionId(), config.TransportConfig().Secure)
 	if err != nil {
 		return err
 	}
@@ -75,6 +75,20 @@ func InitAhasFromFile(filename string) (err error) {
 	go initializeAcmDataSource(acmHost, m)
 
 	return nil
+}
+
+func resolveRegionId() string {
+	regionId := config.RegionId()
+	if len(regionId) > 0 {
+		logger.Info("AHAS regionId resolved from YAML config or system env: " + regionId)
+		return regionId
+	}
+	regionId = aliyun.GetRegionId()
+	if len(regionId) > 0 {
+		logger.Info("AHAS regionId resolved from Aliyun metadata: " + regionId)
+		return regionId
+	}
+	return ""
 }
 
 func initializeAcmDataSource(acmHost string, m *meta.Meta) {

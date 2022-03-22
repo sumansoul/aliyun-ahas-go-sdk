@@ -23,11 +23,13 @@ const (
 )
 
 var openEnvMap = map[string]bool{
-	"cn-hangzhou":    true,
-	"cn-shenzhen":    true,
-	"cn-zhangjiakou": true,
-	"cn-beijing":     true,
-	"cn-shanghai":    true,
+	"cn-hangzhou":      true,
+	"cn-shenzhen":      true,
+	"cn-zhangjiakou":   true,
+	"cn-beijing":       true,
+	"cn-shanghai":      true,
+	"cn-north-2-gov-1": true,
+	"ap-southeast-1":   true,
 }
 
 func IsCurRegionSupported(region string) bool {
@@ -36,13 +38,16 @@ func IsCurRegionSupported(region string) bool {
 }
 
 var endpointMap = map[string]string{
-	"pre-cn-hangzhou":     "pre.proxy.ahas.aliyun.com:9527",
-	"prod-cn-hangzhou":    "proxy.ahas.cn-hangzhou.aliyuncs.com:9527",
-	"prod-cn-beijing":     "proxy.ahas.cn-beijing.aliyuncs.com:9527",
-	"prod-cn-shenzhen":    "proxy.ahas.cn-shenzhen.aliyuncs.com:9527",
-	"prod-cn-shanghai":    "proxy.ahas.cn-shanghai.aliyuncs.com:9527",
-	"prod-cn-zhangjiakou": "proxy.ahas.cn-zhangjiakou.aliyuncs.com:9527",
-	"prod-cn-public":      "ahas-proxy.aliyuncs.com:8848",
+	"pre-cn-hangzhou":            "pre.proxy.ahas.aliyun.com:9527",
+	"prod-cn-hangzhou":           "proxy.ahas.cn-hangzhou.aliyuncs.com:9527",
+	"prod-cn-beijing":            "proxy.ahas.cn-beijing.aliyuncs.com:9527",
+	"prod-cn-shenzhen":           "proxy.ahas.cn-shenzhen.aliyuncs.com:9527",
+	"prod-cn-shanghai":           "proxy.ahas.cn-shanghai.aliyuncs.com:9527",
+	"prod-cn-zhangjiakou":        "proxy.ahas.cn-zhangjiakou.aliyuncs.com:9527",
+	"prod-cn-public":             "ahas-proxy.aliyuncs.com:8848",
+	"prod-cn-shanghai-finance-1": "proxy.ahas.cn-shanghai-finance-1.aliyuncs.com:9527",
+	"prod-cn-north-2-gov-1":      "proxy.ahas.cn-north-2-gov-1.aliyuncs.com:9527",
+	"prod-ap-southeast-1":        "proxy.ahas.ap-southeast-1.aliyuncs.com:9527",
 }
 
 func GetAhasProxyEndpoint(key string) (string, bool) {
@@ -51,15 +56,18 @@ func GetAhasProxyEndpoint(key string) (string, bool) {
 }
 
 var acmEndpointMap = map[string]string{
-	"cn-qingdao":     "addr-qd-internal.edas.aliyun.com",
-	"cn-beijing":     "addr-bj-internal.edas.aliyun.com",
-	"cn-hangzhou":    "addr-hz-internal.edas.aliyun.com",
-	"cn-shanghai":    "addr-sh-internal.edas.aliyun.com",
-	"cn-shenzhen":    "addr-sz-internal.edas.aliyun.com",
-	"cn-zhangjiakou": "addr-cn-zhangjiakou-internal.edas.aliyun.com",
-	"cn-hongkong":    "addr-hk-internal.edas.aliyuncs.com",
-	"ap-southeast-1": "addr-singapore-internal.edas.aliyun.com",
-	"cn-public":      "acm.aliyun.com",
+	"cn-qingdao":            "addr-qd-internal.edas.aliyun.com",
+	"cn-beijing":            "addr-bj-internal.edas.aliyun.com",
+	"cn-hangzhou":           "addr-hz-internal.edas.aliyun.com",
+	"cn-shanghai":           "addr-sh-internal.edas.aliyun.com",
+	"cn-shenzhen":           "addr-sz-internal.edas.aliyun.com",
+	"cn-zhangjiakou":        "addr-cn-zhangjiakou-internal.edas.aliyun.com",
+	"cn-hongkong":           "addr-hk-internal.edas.aliyuncs.com",
+	"ap-southeast-1":        "addr-singapore-internal.edas.aliyun.com",
+	"cn-shanghai-finance-1": "addr-cn-shanghai-finance-1-internal.edas.aliyun.com",
+	"cn-north-2-gov-1":      "addr-cn-north-2-gov-1-internal.edas.aliyun.com",
+	"cn-public":             "acm.aliyun.com",
+	"cn-inner":              "jmenv.tbsite.net",
 }
 
 func GetAcmEndpoint(key string) (string, bool) {
@@ -68,13 +76,15 @@ func GetAcmEndpoint(key string) (string, bool) {
 }
 
 var tlsEndpointMap = map[string]string{
-	"pre-cn-hangzhou":     "pre.proxy.ahas.tls.aliyuncs.com:9528",
-	"prod-cn-hangzhou":    "proxy.ahas.cn-hangzhou.tls.aliyuncs.com:9528",
-	"prod-cn-beijing":     "proxy.ahas.cn-beijing.tls.aliyuncs.com:9528",
-	"prod-cn-shenzhen":    "proxy.ahas.cn-shenzhen.tls.aliyuncs.com:9528",
-	"prod-cn-shanghai":    "proxy.ahas.cn-shanghai.tls.aliyuncs.com:9528",
-	"prod-cn-zhangjiakou": "proxy.ahas.cn-zhangjiakou.tls.aliyuncs.com:9528",
-	"prod-cn-public":      "proxy.ahas.cn-public.tls.aliyuncs.com:9528",
+	"pre-cn-hangzhou":       "pre.proxy.ahas.tls.aliyuncs.com:9528",
+	"prod-cn-hangzhou":      "proxy.ahas.cn-hangzhou.tls.aliyuncs.com:9528",
+	"prod-cn-beijing":       "proxy.ahas.cn-beijing.tls.aliyuncs.com:9528",
+	"prod-cn-shenzhen":      "proxy.ahas.cn-shenzhen.tls.aliyuncs.com:9528",
+	"prod-cn-shanghai":      "proxy.ahas.cn-shanghai.tls.aliyuncs.com:9528",
+	"prod-cn-zhangjiakou":   "proxy.ahas.cn-zhangjiakou.tls.aliyuncs.com:9528",
+	"prod-cn-public":        "proxy.ahas.cn-public.tls.aliyuncs.com:9528",
+	"prod-cn-north-2-gov-1": "proxy.ahas.cn-north-2-gov-1.tls.aliyuncs.com:9528",
+	"prod-ap-southeast-1":   "proxy.ahas.ap-southeast-1.tls.aliyuncs.com:9528",
 }
 
 func GetAhasProxyTlsEndpoint(key string) (string, bool) {
@@ -158,7 +168,10 @@ func Download(destFileFullPath, region, originalFilePath string, isPrivate bool)
 	if err != nil {
 		return err
 	}
-	os.Chmod(destFileFullPath, 0744)
+	err = os.Chmod(destFileFullPath, 0744)
+	if err != nil {
+		return err
+	}
 	defer file.Close()
 	url := GetOssUrl(region, originalFilePath, isPrivate)
 	resp, err := http.Get(url)
@@ -166,7 +179,7 @@ func Download(destFileFullPath, region, originalFilePath string, isPrivate bool)
 		return err
 	}
 	if resp.StatusCode != 200 {
-		return fmt.Errorf("response code: %d", resp.StatusCode)
+		return fmt.Errorf("response code: %d, URL=%s", resp.StatusCode, url)
 	}
 	defer resp.Body.Close()
 	_, err = io.Copy(file, resp.Body)

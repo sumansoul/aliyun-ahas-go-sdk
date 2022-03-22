@@ -28,11 +28,15 @@ const (
 type AgwMessage struct {
 	tsUtil *timestampUtil
 
-	bodyLength       uint32
-	reqId            uint64
-	messageType      uint8
+	bodyLength uint32
+	//offset:4
+	reqId uint64
+	//offset:12
+	messageType uint8
+	//offset:13
 	messageDirection uint8
-	caller           uint8
+	//offset:14
+	caller uint8
 	//offset:15
 	clientIp uint64
 	//offset:23
@@ -55,7 +59,6 @@ type AgwMessage struct {
 	outerReqId       string
 	version          uint32
 
-	//bodyLength
 	body string
 }
 

@@ -107,7 +107,7 @@ func registerRuleDataSource(dataId string, handler func(string), nacosClient con
 	}
 	go func() {
 		data, err := nacosClient.GetConfig(nacosConfig)
-		if err != nil {
+		if err != nil && err.Error() != "config not found" {
 			logging.Error(err, "Failed to getConfig from ACM", "dataId", dataId)
 		} else if len(data) > 0 {
 			handler(data)
